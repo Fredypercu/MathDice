@@ -1,18 +1,14 @@
-package Ventanas;
-
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Juego.Jugador;
-
 import javax.swing.JLabel;
+import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.security.Principal;
 import java.awt.event.ActionEvent;
 
 public class VentanaInicio extends JFrame {
@@ -23,22 +19,13 @@ public class VentanaInicio extends JFrame {
 	private JTextField textApellidos;
 	private JTextField textEdad;
 	private JTextField cajaMSN;
-	private VentanaInicio referencia;
-	private VentanaPrincipal vPrincipal;
-	private Object btnAJUGAR;
-	private JTextField msjBienvenida;
-	
-	// creo una referencia a la clase Login. Apunta al objeto login, no crea ningun objeto Login.
-		private VentanaInicio referenciaVentanaInicio;
-		private Principal ventanaPrincipal;
-		
-	// CREAR objeto jugador
-		private Jugador nuevoJug;
+
+
 	//Constructor 
 	
-	public VentanaInicio(VentanaPrincipal vP) {
+	public VentanaInicio() {
 		
-		setTitle("Login");
+		setTitle("MathDice");
 		
 		//Propiedades de ventana
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,12 +35,9 @@ public class VentanaInicio extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		this.btnAJUGAR="A JUGAR";
-		referencia=this;
-		vPrincipal=vP;
-		
 		//texto1
 		JLabel lblDTJ = new JLabel("DATOS DEL JUGADOR");
+		lblDTJ.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		lblDTJ.setBounds(10, 11, 242, 25);
 		contentPane.add(lblDTJ);
 		
@@ -98,11 +82,9 @@ public class VentanaInicio extends JFrame {
 					cajaMSN.setText("Por favor, rellene todos los campos para iniciar partida ");
 				}else{
 					Jugador j = new Jugador(textNombre.getText(), textApellidos.getText(), Integer.valueOf(textEdad.getText()));
-					cajaMSN.setText("Player "+j.getNombre()+" "+j.getApellidos()+ " de edad "+j.getEdad()+" creado");
-					
-					vPrincipal.setVisible(true);
-					referencia.setVisible(false);
+					cajaMSN.setText("Jugador "+j.getNombre()+" "+j.getApellidos()+ " de edad "+j.getEdad()+" creado correctamente!!");
 				}
+				
 			}
 		});
 		btnAJUGAR.setBounds(25, 154, 383, 23);
@@ -113,6 +95,7 @@ public class VentanaInicio extends JFrame {
 		cajaMSN.setBounds(10, 188, 414, 62);
 		contentPane.add(cajaMSN);
 		cajaMSN.setColumns(10);
+		
 		
 		
 	}

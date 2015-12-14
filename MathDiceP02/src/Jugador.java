@@ -1,6 +1,3 @@
-package Juego;
-
-import javax.swing.JTextField;
 /*
  * La definición de la clase mediante la palabra reservada Jugador
  * 
