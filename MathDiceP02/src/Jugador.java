@@ -3,6 +3,7 @@
  * 
  * public class nombreClase
  */
+//
 public class Jugador {
 
 		//Propiedades
