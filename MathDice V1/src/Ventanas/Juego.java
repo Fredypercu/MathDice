@@ -5,17 +5,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Juego.Jugador;
+
 import javax.swing.JLabel;
 
 public class Juego extends JFrame {
 
 	private JPanel contentPane;
 
-	private JLabel msjBienvenida;
-
-	/**
-	 * Create the frame.
-	 */
+	//Creacion de la ventana
 	public Juego() {
 		setTitle("Juego");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,9 +24,12 @@ public class Juego extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		msjBienvenida = new JLabel("");
-		msjBienvenida.setBounds(228, 25, 159, 14);
+		//Label1 - label que contiene "bienvenido jugador" esta no se cambia
+		JLabel msjBienvenida = new JLabel("Bienvenido jugador");
+		msjBienvenida.setBounds(10, 11, 150, 30);
 		contentPane.add(msjBienvenida);
+		
+		
 		
 		
 	}
