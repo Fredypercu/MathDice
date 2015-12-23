@@ -26,7 +26,7 @@ public class Login extends JFrame {
 		
 		//Labeljugador que variará según el jugador introducido.
 		JLabel labeljugador = new JLabel(" Bienvenido " + j.getNombre());
-		labeljugador.setBounds(212, 11, 180, 25);
+		labeljugador.setBounds(244, 11, 180, 25);
 		contentPane.add(labeljugador);
 	}
 }
