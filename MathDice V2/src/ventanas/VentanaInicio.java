@@ -19,10 +19,10 @@ public class VentanaInicio extends JFrame {
 
 	private JPanel contentPane;
 
-	private JTextField caja1;
-	private JTextField caja2;
-	private JTextField caja3;
-	private JTextField caja4;
+	private JTextField textNombre;
+	private JTextField textApellidos;
+	private JTextField textEdad;
+	private JTextField cajaMSN;
 
 	//Crea un objeto de tipo VentanaInicio
 	public VentanaInicio() {
@@ -37,67 +37,67 @@ public class VentanaInicio extends JFrame {
 		contentPane.setLayout(null);
 
 		// texto1
-		JLabel texto1 = new JLabel("DATOS DEL JUGADOR");
-		texto1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		texto1.setBounds(10, 11, 242, 25);
-		contentPane.add(texto1);
+		JLabel lblDTJ = new JLabel("DATOS DEL JUGADOR");
+		lblDTJ.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblDTJ.setBounds(10, 11, 242, 25);
+		contentPane.add(lblDTJ);
 
 		// texto2
-		JLabel texto2 = new JLabel("Nombre");
-		texto2.setBounds(10, 69, 46, 14);
-		contentPane.add(texto2);
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setBounds(10, 69, 46, 14);
+		contentPane.add(lblNombre);
 
 		// texto3
-		JLabel texto3 = new JLabel("Apellidos");
-		texto3.setBounds(10, 94, 76, 14);
-		contentPane.add(texto3);
+		JLabel lblApellidos = new JLabel("Apellidos");
+		lblApellidos.setBounds(10, 94, 76, 14);
+		contentPane.add(lblApellidos);
 
 		// texto4
-		JLabel texto4 = new JLabel("Edad");
-		texto4.setBounds(10, 119, 46, 14);
-		contentPane.add(texto4);
+		JLabel lblEdad = new JLabel("Edad");
+		lblEdad.setBounds(10, 119, 46, 14);
+		contentPane.add(lblEdad);
 
-		// caja de texto 1
-		caja1 = new JTextField();
-		caja1.setBounds(107, 66, 286, 20);
-		contentPane.add(caja1);
-		caja1.setColumns(10);
+		// caja Nombre
+		textNombre = new JTextField();
+		textNombre.setBounds(107, 66, 286, 20);
+		contentPane.add(textNombre);
+		textNombre.setColumns(10);
 
-		// caja de texto 2
-		caja2 = new JTextField();
-		caja2.setColumns(10);
-		caja2.setBounds(107, 91, 286, 20);
-		contentPane.add(caja2);
+		// caja Apellidos
+		textApellidos = new JTextField();
+		textApellidos.setColumns(10);
+		textApellidos.setBounds(107, 91, 286, 20);
+		contentPane.add(textApellidos);
 
-		// caja de texto 3
-		caja3 = new JTextField();
-		caja3.setColumns(10);
-		caja3.setBounds(107, 116, 286, 20);
-		contentPane.add(caja3);
+		// caja Edad
+		textEdad = new JTextField();
+		textEdad.setColumns(10);
+		textEdad.setBounds(107, 116, 286, 20);
+		contentPane.add(textEdad);
 
-		// caja de texto 4
-		caja4 = new JTextField();
-		caja4.setBounds(10, 188, 414, 62);
-		contentPane.add(caja4);
-		caja4.setColumns(10);
+		// caja MSN (Mensaje Nuevo Jugador)
+		cajaMSN = new JTextField();
+		cajaMSN.setBounds(10, 188, 414, 62);
+		contentPane.add(cajaMSN);
+		cajaMSN.setColumns(10);
 
 		// Boton
 		JButton boton1 = new JButton("A JUGAR");
 		boton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {				
 				try{				
-					if (caja1.getText().compareTo("")==0|| caja2.getText().compareTo("")==0 || caja3.getText().compareTo("")==0) {
-						caja4.setText("Rellene todos los campos parea poder empezar el juego");
+					if (textNombre.getText().compareTo("")==0|| textApellidos.getText().compareTo("")==0 || textEdad.getText().compareTo("")==0) {
+						cajaMSN.setText("Rellene todos los campos parea poder empezar el juego");
 					} else {
-						Jugador j = new Jugador(caja1.getText(), caja2.getText(), Integer.valueOf(caja3.getText()));
-						caja4.setText("Player " + j.getNombre() + " " + j.getApellidos() + " de edad " + j.getEdad() + " creado correctamente ");
+						Jugador j = new Jugador(textNombre.getText(), textApellidos.getText(), Integer.valueOf(textEdad.getText()));
+						cajaMSN.setText("Player " + j.getNombre() + " " + j.getApellidos() + " de edad " + j.getEdad() + " creado correctamente ");
 						//Aqui creamos un objeto de tipo login(una ventana de login) pero no se va a ejecutar todavia
 						Login l =new Login(j);
 						//Con esta linea hacemos que la ventana se muestre.
 						l.setVisible(true); 
 					}				
 				} catch(Exception e) {
-					caja4.setText("Has introducido un valor de edad invalido");
+					cajaMSN.setText("Has introducido un valor de edad invalido");
 				}
 			}
 		});
