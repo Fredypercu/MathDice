@@ -27,8 +27,8 @@ public class VentanaInicio extends JFrame {
 	//Crea un objeto de tipo VentanaInicio
 	public VentanaInicio() {
 		
+		//Título Ventana
 		setTitle("Login");
-
 
 		// Propiedades de ventana
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

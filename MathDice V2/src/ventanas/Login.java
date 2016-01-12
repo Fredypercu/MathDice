@@ -17,6 +17,7 @@ public class Login extends JFrame {
 	
 	//Atributos
   	private JPanel contentPane;
+  	private Jugador jug;
  	JLabel nombreJugador;
     private ImageIcon[] dados3=new ImageIcon[3];
  	private ImageIcon[] dados6=new ImageIcon[6];
@@ -28,6 +29,12 @@ public class Login extends JFrame {
 	
 	//Creacion de la ventana
 	public Login(Jugador j) {
+		this.jug=j;
+		
+		//Título Ventana
+		setTitle("Jugada");
+		
+		// Propiedades de ventana
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(150, 150, 500, 400);
 		contentPane = new JPanel();
@@ -36,7 +43,7 @@ public class Login extends JFrame {
 		contentPane.setLayout(null);
 		
 		//Labeljugador que variará según el jugador introducido.
-		JLabel labeljugador = new JLabel(" Bienvenido " + j.getNombre());
+		JLabel labeljugador = new JLabel(" Bienvenido " + jug.getNombre());
 		labeljugador.setBounds(304, 0, 180, 25);
 		contentPane.add(labeljugador);
 		
