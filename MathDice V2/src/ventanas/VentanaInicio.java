@@ -23,13 +23,14 @@ public class VentanaInicio extends JFrame {
 	private JTextField textApellidos;
 	private JTextField textEdad;
 	private JTextField cajaMSN;
+	
+	private VentanaInicio ref;
 
 	//Crea un objeto de tipo VentanaInicio
 	public VentanaInicio() {
-		
+
 		//Título Ventana
 		setTitle("Login");
-
 		// Propiedades de ventana
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -54,10 +55,12 @@ public class VentanaInicio extends JFrame {
 		lblApellidos.setBounds(10, 81, 76, 14);
 		contentPane.add(lblApellidos);
 
+
 		// texto4
 		JLabel lblEdad = new JLabel("Edad");
 		lblEdad.setBounds(10, 112, 46, 14);
 		contentPane.add(lblEdad);
+
 
 		// caja Nombre
 		textNombre = new JTextField();
@@ -83,6 +86,9 @@ public class VentanaInicio extends JFrame {
 		contentPane.add(cajaMSN);
 		cajaMSN.setColumns(10);
 
+		//Asignamos la referencia de esta ventana
+		ref=this;
+		
 		// Boton
 		JButton btnAJUGAR = new JButton("A JUGAR");
 		btnAJUGAR.addActionListener(new ActionListener() {
@@ -97,13 +103,16 @@ public class VentanaInicio extends JFrame {
 						Login l =new Login(j);
 						//Con esta linea hacemos que la ventana se muestre.
 						l.setVisible(true); 
+						
+						//Cierra la ventana
+						ref.dispose();
 					}				
 				} catch(Exception e) {
 					cajaMSN.setText("Has introducido un valor de edad invalido");
 				}
 			}
 		});
-		btnAJUGAR.setBounds(25, 154, 383, 23);
+		btnAJUGAR.setBounds(10, 154, 383, 23);
 		contentPane.add(btnAJUGAR);
 	}
 
