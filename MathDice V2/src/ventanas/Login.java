@@ -23,7 +23,7 @@ public class Login extends JFrame {
 
 	//Atributos
 	private JPanel contentPane;
-	private Jugador jug;
+	
 	private ImageIcon[] dados3=new ImageIcon[3];
 	private ImageIcon[] dados6=new ImageIcon[6];
 	private ImageIcon[] dados12=new ImageIcon[12];
@@ -32,7 +32,10 @@ public class Login extends JFrame {
 	private JLabel dado4,dado5;
 	private JLabel dado6;
 	
+	private Jugador jug;
+	
 	//Atributos P05
+
 	private JTextField sumDados;
 	private JButton botonMenos;
 	private Boolean alternando = false; 
@@ -51,8 +54,10 @@ public class Login extends JFrame {
 	//Creacion de la ventana
 	public Login(Jugador j) {
 		this.jug=j;
+		
 		//Título Ventana
 		setTitle("Jugada MathDice");
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(325, 325, 650, 550);
 		contentPane = new JPanel();
@@ -71,6 +76,8 @@ public class Login extends JFrame {
 		//Inicializacion / condicion / paso
 		//inicializacion de la variable que se va a utilizar dentro del for ( util para acceder a diferentes posiciones del for a medida que avanza el incremento)
 		for(int i=0;i<dados3.length;i++){
+			//getClass para coger el tipo de la clase que hay que meter por parametros
+			//getResource para obtener lo que se encuentra en la ruta que le pasamos por parametros en forma de String
 			dados3[i]=new ImageIcon(getClass().getResource("img/dado"+String.valueOf(i+1)+"_3.png"));
 		}
 		for(int i=0;i<dados6.length;i++){
@@ -81,7 +88,9 @@ public class Login extends JFrame {
 		}
 		
 		//Creamos los numeros aleatorios
+		//Int esta entre parentesis porque se esta casteando, como el metodo floor devuelve un double, lo forzamos a que su salida sea un integer
 		
+		//dados3							//Se llama a la clase Math, metodo random y se multiplica por (numMax - numMin +1) + numMin
 		int valordado1 = (int) Math.floor(Math.random()*(2-0+1)+0);
 		int valordado2 = (int) Math.floor(Math.random()*(2-0+1)+0);
 		
@@ -98,6 +107,7 @@ public class Login extends JFrame {
 		//Creamos JLabel en la ventana
 		
 		dado1 = new JLabel();
+		//SetIcon llama a la posicion valordado1 del array dados3 y cuando lo llama lo transforma en icono
 		dado1.setIcon(dados3[valordado1]);
 		dado1.setBounds(10, 11, 125, 112);
 		contentPane.add(dado1);
@@ -274,6 +284,13 @@ public class Login extends JFrame {
 		dado6.setBounds(10, 255, 125, 112);
 		contentPane.add(dado6);
 		
+		//Caja que muestra el valor de los dados cuando clickas
+		sumDados = new JTextField();
+		sumDados.setEditable(false);
+		sumDados.setBounds(435, 331, 130, 48);
+		contentPane.add(sumDados);
+		sumDados.setColumns(10);
+
 		//Boton de suma
 		JButton botonMas = new JButton("+");
 		botonMas.addActionListener(new ActionListener() {
@@ -311,13 +328,6 @@ public class Login extends JFrame {
 			}
 		});
 		
-		//Caja que muestra el valor de los dados cuando clickas
-		sumDados = new JTextField();
-		sumDados.setEditable(false);
-		sumDados.setBounds(435, 331, 130, 48);
-		contentPane.add(sumDados);
-		sumDados.setColumns(10);
-		
 		//label que muestra el resultado
 				JLabel labelResultado = new JLabel();
 				labelResultado.setBounds(217, 390, 130, 48);
@@ -333,6 +343,7 @@ public class Login extends JFrame {
 					//comprobomaos que el resultado acumulado sea igual al dodecaedro
 					if(valordado6+1==resultadoFinal){
 						resultadoenTexto.setText("HAS GANADO !");
+						botonRelanzar.setEnabled(true);
 						// ! = indica negacion de lo siguiente que se escribe. (si esto no es verdad, haz esto)
 					}else if(!(valordado6+1==resultadoFinal)){ 
 						resultadoenTexto.setText("VUELVE A INTENTARLO !");
@@ -341,14 +352,14 @@ public class Login extends JFrame {
 				}
 			}
 		});
-		
-		
+		botonMathdice.setBounds(246, 452, 252, 48);
+		contentPane.add(botonMathdice);
+
+
 		//Jlabel que muestra si has ganado o no
 		resultadoenTexto = new JLabel();
 		resultadoenTexto.setBounds(357, 390, 141, 48);
 		contentPane.add(resultadoenTexto);
-		botonMathdice.setBounds(246, 452, 252, 48);
-		contentPane.add(botonMathdice);
 		
 		//ref=this para referenciar la ventana actual
 		ref=this;
