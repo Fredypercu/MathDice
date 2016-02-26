@@ -379,7 +379,6 @@ public class Login extends JFrame {
 		botonRelanzar.setEnabled(false);
 		botonRelanzar.setBounds(10, 404, 169, 23);
 		contentPane.add(botonRelanzar);
-		
 	
 	}
 }
