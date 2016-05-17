@@ -8,15 +8,18 @@ public class Principal extends JFrame{
 	public Principal() {
 	}
 	
-	// Punto de entrada de nuestra aplicación
+	// Inicialización Aplicación
+	
 	public static void main(String[] args) {
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					// Creamos un objeto de tipo VentanaInicio llamado frame
+					// Creamos objeto VentanaInicio
+					
 					VentanaInicio frame = new VentanaInicio();
-					// Aquí hacemos visible el objeto frame
+					// Objeto Visible
+					
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

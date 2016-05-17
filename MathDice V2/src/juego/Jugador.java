@@ -1,25 +1,30 @@
 package juego;
 
 public class Jugador {
-	//Atributos (o propiedades)
+	
+	//Atributos 
+	
 		private String nombre;
-		private String apellidos;
+		private String apellido1;
+		private String apellido2;
 		private int edad;
 		private int puntos;
 
 		//Constructor 
-		//Punto de entrada que se ejeuta al crear un objeto de tipo Jugador
-		public Jugador(String nom, String ape, int eda) {
+		
+		public Jugador(String nom, String ape1, String ape2, int eda) {
 			
 			if (eda<=0) {
-				throw new IllegalArgumentException("Has introducido una edad invalida");
+				throw new IllegalArgumentException("Has introducido una edad erronea, revisa por favor");
 				
 				
 			}
 			
-			//Dentro del constructor, SE RELLENAN los atributos POR PRIMERA VEZ.
+			//los atributos
+			
 			this.nombre=nom;
-			this.apellidos=ape;
+			this.apellido1=ape1;
+			this.apellido2=ape2;
 			this.edad=eda;
 			this.puntos=0;		
 		
@@ -27,14 +32,17 @@ public class Jugador {
 		
 			
 		
-		//Métodos getter
+		//Getter
 		
-		//Obtiene el VALOR de una propiedad
+		//VALOR 
 		public String getNombre(){
 			return nombre;
 		}
-		public String getApellidos(){
-			return apellidos;
+		public String getApellido1(){
+			return apellido1;
+		}
+		public String getApellido2(){
+			return apellido2;
 		}
 		public int getEdad(){
 			return edad;
@@ -43,18 +51,21 @@ public class Jugador {
 			return puntos;
 		}
 		
-		//Métodos setter
+		//Setter
 		
-		//Modifica el VALOR de una propiedad
+		//VALOR
 		public void setNombre(String nom){
 			nombre=nom;
 		}
-		public void setApellidos(String ape){
-			apellidos=ape;
+		public void setApellido1(String ape1){
+			apellido1=ape1;
+		}
+		public void setApellido2(String ape2){
+			apellido2=ape2;
 		}
 		public void setEdad (int eda){
 			if (eda<=0) {
-				throw new IllegalArgumentException("Has introducido una edad invalida");
+				throw new IllegalArgumentException("Has introducido una edad erronea, revisa por favor");
 			}
 			edad=eda;
 		}
