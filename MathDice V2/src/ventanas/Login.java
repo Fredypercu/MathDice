@@ -1,6 +1,6 @@
 package ventanas;
 
-
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
@@ -49,7 +49,8 @@ public class Login extends JPanel {
 	
 	private Boolean botonPulsable = true;
 	private Boolean alternando = false; 
-    private Jugador jug;
+	
+   
 	private JTextField sumDados;
 	private JButton botonMenos;
 	
@@ -77,9 +78,9 @@ public class Login extends JPanel {
 		
 		contentPane.setLayout(null);
 		
-		//Labe que recoge los datos creación de usuario + mensaje de bienvenida
+		//Label que recoge los datos creación de usuario + mensaje de bienvenida
 		
-		JLabel label1 = new JLabel("Bienvenido al juego "+jug.getNombre());
+		JLabel label1 = new JLabel("Bienvenido al juego "+j.getNombre());
 		label1.setBounds(435, 11, 233, 14);
 		add(label1);
 		
@@ -276,7 +277,7 @@ public class Login extends JPanel {
 		//Jlabel que muestra si has ganado o no
 		
 		resultadoenTexto = new JLabel();
-		resultadoenTexto.setBounds(303, 390, 321, 48);
+		resultadoenTexto.setBounds(357, 390, 141, 48);
 		add(resultadoenTexto);
 		
 		// referenciamos la ventana actual

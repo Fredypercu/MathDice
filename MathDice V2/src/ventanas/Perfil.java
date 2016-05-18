@@ -6,7 +6,6 @@ import javax.swing.JPanel;
 
 import juego.Jugador;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 

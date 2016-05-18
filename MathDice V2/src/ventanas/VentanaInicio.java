@@ -6,6 +6,9 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//import java.sql.Connection;//Cambie anoche
+import com.mysql.jdbc.Connection;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,8 +19,6 @@ import javax.swing.border.EmptyBorder;
 
 import juego.Jugador;
 
-
-import com.mysql.jdbc.Connection;
 import Modelo.ConexionBD;
 import Modelo.JugadorBBDD;
 
@@ -50,9 +51,6 @@ public class VentanaInicio extends JFrame {
 	
 	public VentanaInicio() {
 
-		//Título Ventana
-		
-		setTitle("Login");
 		
 		// Propiedades de ventana
 		
@@ -145,11 +143,20 @@ public class VentanaInicio extends JFrame {
 						
 						l.setVisible(true); 
 						
+						JugadorBBDD.insertarJugador(j);
+						
+						VentanaPrincipal ju = new VentanaPrincipal();
+						ju.inicializacion(j);
+					
 						//Cierra la ventana
 						
 						ref.dispose();
 						
-					
+						//Abro la ventana de Juego
+						
+						ju.setVisible(true);
+						
+						
 					}				
 				} catch(Exception e) {
 					cajaMSN.setText("Has introducido un valor de edad invalido");
@@ -160,6 +167,18 @@ public class VentanaInicio extends JFrame {
 		btnAJUGAR.setBounds(10, 154, 383, 23);
 		contentPane.add(btnAJUGAR);
 		
+		JButton btnPrueba = new JButton("Tester");
+		btnPrueba.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textNombre.setText("Jugador");
+				textApellido1.setText("de prueba");
+				textApellido2.setText("comprobación");
+				textEdad.setText("28");
+				
+			}
+		});
+		btnPrueba.setBounds(320, 16, 89, 23);
+		contentPane.add(btnPrueba);
 		
 	}
 
