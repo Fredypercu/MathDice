@@ -21,7 +21,8 @@ import java.sql.DriverManager;
 			      
 			      // Conexion (login)
 			    
-			      connect = DriverManager.getConnection("jdbc:mysql://localhost/MathdiceDAM?user=Alfredo&password=");
+			      connect = DriverManager.getConnection("jdbc:mysql://localhost/mathdicedam?"
+				      		+ "user=Alfredo&password=Marimba19");
 			     System.out.println("Conexion realizada");
 		    
 			} catch (Exception e) {

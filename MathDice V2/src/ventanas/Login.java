@@ -181,7 +181,7 @@ public class Login extends JPanel {
 		sumDados = new JTextField();
 		sumDados.setEditable(false);
 		sumDados.setBounds(402, 336, 150, 43);
-		contentPane.add(sumDados);
+		add(sumDados);
 		sumDados.setColumns(10);
 
 

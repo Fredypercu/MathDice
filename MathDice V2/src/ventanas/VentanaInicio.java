@@ -167,18 +167,18 @@ public class VentanaInicio extends JFrame {
 		btnAJUGAR.setBounds(10, 154, 383, 23);
 		contentPane.add(btnAJUGAR);
 		
-		JButton btnPrueba = new JButton("Tester");
-		btnPrueba.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				textNombre.setText("Jugador");
-				textApellido1.setText("de prueba");
-				textApellido2.setText("comprobación");
-				textEdad.setText("28");
+		//JButton btnPrueba = new JButton("Tester");
+		//btnPrueba.addActionListener(new ActionListener() {
+			//public void actionPerformed(ActionEvent arg0) {
+				//textNombre.setText("Jugador");
+				//textApellido1.setText("de prueba");
+				//textApellido2.setText("comprobación");
+				//textEdad.setText("28");
 				
-			}
-		});
-		btnPrueba.setBounds(320, 16, 89, 23);
-		contentPane.add(btnPrueba);
+			//}
+		//});
+		//btnPrueba.setBounds(320, 16, 89, 23);
+		//contentPane.add(btnPrueba);
 		
 	}
 
