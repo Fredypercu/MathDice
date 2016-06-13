@@ -7,13 +7,13 @@ import java.sql.DriverManager;
 
 
 
-	public class ConexionBD {
+	public class ConexionBBDD {
 		
 		//Un objeto de tipo connection que se inicializa a null (relacionado con el try catch)
 		
 		private Connection connect = null;
 		
-		public ConexionBD() {
+		public ConexionBBDD() {
 			try {
 			     //Cargar la clase
 				
@@ -23,6 +23,7 @@ import java.sql.DriverManager;
 			    
 			      connect = DriverManager.getConnection("jdbc:mysql://localhost/mathdicedam?"
 				      		+ "user=Alfredo&password=Marimba19");
+			      
 			     System.out.println("Conexion realizada");
 		    
 			} catch (Exception e) {

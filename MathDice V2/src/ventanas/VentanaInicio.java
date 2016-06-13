@@ -6,9 +6,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//import java.sql.Connection;//Cambie anoche
-import com.mysql.jdbc.Connection;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,12 +13,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+//import java.sql.Connection;
+import com.mysql.jdbc.Connection;
 
-import juego.Jugador;
-
-import Modelo.ConexionBD;
+import Modelo.ConexionBBDD;
 import Modelo.JugadorBBDD;
-
+import juego.Jugador;
 
 public class VentanaInicio extends JFrame {
 
@@ -38,19 +35,22 @@ public class VentanaInicio extends JFrame {
 	
 	//Creamos la conexion a la BBDD.
 	
-		private ConexionBD conexion1 = new ConexionBD();
+		private ConexionBBDD conexion1;
 	
-		private Connection conexion = (Connection) conexion1.getConexion();
+		private Connection conexion;
 		
-		//Inicializar la clase JugadorBBDD,
+	//Inicializar la clase JugadorBBDD,
 		
-		private JugadorBBDD jugadorBBDD = new JugadorBBDD(conexion);
+		private JugadorBBDD jugadorBBDD;
 	
 	
 	//Crea un objeto de tipo VentanaInicio
 	
 	public VentanaInicio() {
 
+		conexion1 = new ConexionBBDD();
+		conexion = (Connection) conexion1.getConexion();
+		jugadorBBDD = new JugadorBBDD(conexion);
 		
 		// Propiedades de ventana
 		

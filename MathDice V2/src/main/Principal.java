@@ -5,8 +5,6 @@ import javax.swing.JFrame;
 import ventanas.VentanaInicio;
 
 public class Principal extends JFrame{
-	public Principal() {
-	}
 	
 	// Inicialización Aplicación
 	

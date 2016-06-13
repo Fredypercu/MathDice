@@ -17,7 +17,7 @@ public class JugadorBBDD {
 		private static Connection conexion;
 		private static Statement orden = null;
 		
-		//Constructor, que permite realizar las consultas a la BBDD/Mathdice/Alfredo
+		//Constructor, que permite realizar las consultas a la BBDD/Mathdice/Alfredo/Registro
 		
 		public JugadorBBDD(Connection c) {
 			this.conexion=c;
@@ -26,6 +26,8 @@ public class JugadorBBDD {
 		//Inserta un usuario en la BBDD
 		
 		public static void insertarJugador(Jugador j){
+			
+			
 			try{
 				//Conexion
 				
@@ -33,7 +35,7 @@ public class JugadorBBDD {
 				
 				//Sentencia de tipo INSERT.
 				
-			    String sql = "INSERT INTO mathdice (nombre,apellido1,apellido2,edad) "+"VALUES ('"+j.getNombre()+"', '"+j.getApellido1()+"', '"+j.getApellido2()+"', "+j.getEdad()+")";
+				 String sql = "INSERT INTO registro (nombre,apellido1,apellido2,edad) "+"VALUES ('"+j.getNombre()+"', '"+j.getApellido1()+"', '"+j.getApellido2()+"', "+j.getEdad()+")";
 			    
 			    //Ejecutamos sentencia Linea Anterior
 			    
