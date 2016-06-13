@@ -62,19 +62,19 @@ public class Registro extends JFrame {
 		// texto3
 		
 		JLabel texto3 = new JLabel("Primer Apellido");
-		texto3.setBounds(10, 94, 131, 14);
+		texto3.setBounds(10, 119, 131, 14);
 		contentPane.add(texto3);
 
 		// texto4
 		
 		JLabel texto4 = new JLabel("Edad");
-		texto4.setBounds(10, 169, 46, 14);
+		texto4.setBounds(10, 214, 46, 14);
 		contentPane.add(texto4);
 		
 		//texto5
 		
 		JLabel texto5 = new JLabel("Segundo Apellido");
-		texto5.setBounds(10, 125, 131, 14);
+		texto5.setBounds(10, 163, 131, 14);
 		contentPane.add(texto5);
 
 		// caja Nombre
@@ -88,14 +88,14 @@ public class Registro extends JFrame {
 		
 		textApellido1 = new JTextField();
 		textApellido1.setColumns(10);
-		textApellido1.setBounds(151, 91, 242, 20);
+		textApellido1.setBounds(151, 116, 242, 20);
 		contentPane.add(textApellido1);
 
 		// caja Apellido2
 		
 		textApellido2 = new JTextField();
 		textApellido2.setColumns(10);
-		textApellido2.setBounds(151, 166, 242, 20);
+		textApellido2.setBounds(151, 211, 242, 20);
 		contentPane.add(textApellido2);
 
 		// caja Edad
@@ -109,7 +109,7 @@ public class Registro extends JFrame {
 		
 		cajaMSN = new JTextField();
 		cajaMSN.setColumns(10);
-		cajaMSN.setBounds(151, 122, 242, 20);
+		cajaMSN.setBounds(151, 160, 242, 20);
 		contentPane.add(cajaMSN);
 
 		//referencia de esta ventana
@@ -154,22 +154,14 @@ public class Registro extends JFrame {
 				}
 			}
 		});
-		boton1.setBounds(10, 278, 383, 23);
+		boton1.setBounds(10, 278, 414, 23);
 		contentPane.add(boton1);
 		
-		//JButton btnPrueba = new JButton("Prueba");//
-		//btnPrueba.addActionListener(new ActionListener() {//
-			//public void actionPerformed(ActionEvent arg0) {//
-				//textNombre.setText("Jugador");//
-				//textApellido1.setText("de Prueba");//
-				//cajaMSN.setText("No Registrado");//
-				//textApellido2.setText("28");//
+		
 				
 			}
-		//});
-		//btnPrueba.setBounds(320, 16, 89, 23);//
-		//contentPane.add(btnPrueba);//
+		
 		
 		
 	}
-//}
+

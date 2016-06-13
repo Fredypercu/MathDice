@@ -15,14 +15,10 @@ public class Principal extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					// Creamos un objeto de tipo VentanaInicio llamado frame
+					
+					// Creamos objeto Ventana Login
 							
 					Login frame = new Login();
-					
-					//Registro frame = new Registro();
-					
-					
-					//Aquí hacemos visible el objeto frame
 					
 					frame.setVisible(true);
 				} catch (Exception e) {

@@ -26,7 +26,7 @@ public class Login extends JFrame {
 	private Login ref;
 
 	private JButton botonJugar;
-	private JButton botonRegistrarse;
+	private JButton botonRegistro;
 	private JComboBox comboBoxJugadores;
 	private Jugador jugadorSeleccionado;
 
@@ -34,7 +34,7 @@ public class Login extends JFrame {
 	//Conectamos a BBDD
 
 	private java.sql.Connection conexion = ConexionBBDD.getConexion();
-	private JugadorBBDD jugadorBD = new JugadorBBDD(conexion);
+	private JugadorBBDD jugadorBBDD = new JugadorBBDD(conexion);
 
 	//Atributos
 	
@@ -84,7 +84,7 @@ public class Login extends JFrame {
 		comboBoxJugadores.setBounds(108, 52, 244, 22);
 		contentPane.add(comboBoxJugadores);
 
-		jugadorBD.extraerJugadoresBD(comboBoxJugadores);
+		jugadorBBDD.extraerJugadoresBBDD(comboBoxJugadores);
 
 		// Boton Jugar
 		
@@ -103,16 +103,16 @@ public class Login extends JFrame {
 
 		// Boton de registro
 		
-		botonRegistrarse = new JButton("Registrarse");
-		botonRegistrarse.addActionListener(new ActionListener() {
+		botonRegistro = new JButton("Registrarse");
+		botonRegistro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Registro ven1 = new Registro();
 				ref.dispose();
 				ven1.setVisible(true);
 			}
 		});
-		botonRegistrarse.setBounds(235, 101, 117, 23);
-		contentPane.add(botonRegistrarse);
+		botonRegistro.setBounds(235, 101, 117, 23);
+		contentPane.add(botonRegistro);
 
 	}
 

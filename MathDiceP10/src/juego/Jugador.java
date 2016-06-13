@@ -4,7 +4,7 @@ public class Jugador {
 	
 	//Atributos (o propiedades)
 	
-		private Integer id;
+		private int id;
 		private String nombre;
 		private String primerapellido;
 		private String segundoapellido;
@@ -23,7 +23,7 @@ public class Jugador {
 				
 			}
 			
-			//Dentro del constructor, SE RELLENAN los atributos POR PRIMERA VEZ.
+			//Rellenamos los Atributos
 			
 			this.id=0;
 			this.nombre=nom;
@@ -34,24 +34,13 @@ public class Jugador {
 		
 		}
 		
-			
-		
 		//Métodos getter
 		
-		public Integer getId() {
+
+		public int getId() {
 			return id;
 		}
-
-
-
-		public void setId(Integer id) {
-			this.id = id;
-		}
-
-
-
-		//Obtiene el VALOR de una propiedad
-		
+			
 		public String getNombre(){
 			return nombre;
 		}
@@ -70,8 +59,11 @@ public class Jugador {
 		
 		//Métodos setter
 		
-		//Modifica el VALOR de una propiedad
+		//Se moifican los valores
 		
+		public void setId(int id) {
+			this.id = id;
+		}
 		public void setNombre(String nom){
 			nombre=nom;
 		}

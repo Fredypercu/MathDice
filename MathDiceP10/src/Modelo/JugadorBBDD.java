@@ -16,37 +16,35 @@ public class JugadorBBDD {
 	private static Connection conexion;
 	private static Statement orden = null;
 
-	// Constructor, que permite realizar las consultas a la base de datos
-	// mediante una conexion establecida anteriormente, la cual le mandamos por
-	// parametros
+	// Constructor BBDD
+	
 	
 	public JugadorBBDD(Connection c) {
 		this.conexion = c;
 	}
 
-	// ----------------------------------------
-	// ---- REGISTRAR UN JUGADOR
-	// ----------------------------------------
+	//  Se registra el usuario
 
-	// Metodo que permite insertar un usuario en la base de datos
+	// Inserto usuario BBDD
 	
 	public static void insertarJugador(Jugador j) {
 		Integer aux = 0;
 		try {
+			
 			// Conectarse a la conexion
+			
 			
 			orden = conexion.createStatement();
 			
-			// Aqui metemos la sentecia SQL. En este caso es una sencilla
-			// sentencia de tipo INSERT.
-			// En sql, los VARCHAR van asi 'comilla simple'. "String normal de
-			// java" = en sql = '"STRING para SQL"'
 			
-			String sql = "INSERT INTO mathdicedam (id,nombre,apellido1,apellido2,edad,puntos) " + "VALUES ('" + j.getNombre()
+			// Sentencias SQL consultas a la BBDD
+			
+			
+			String sql = "INSERT INTO registro (nombre,apellido1,apellido2,edad,puntos) " + "VALUES ('" + j.getNombre()
 					+ "', '" + j.getPrimerApellido() + "', '" + j.getSegundoApellido() + "', " + j.getEdad() + ", "
 					+ aux + ")";
 			
-			// Ejecutar la sentencia SQL que hemos escrito en la linea de arriba
+			// Ejecutamos la sentencia SQL
 			
 			orden.executeUpdate(sql);
 			System.out.println("Usuario registrado con exito");
@@ -55,12 +53,12 @@ public class JugadorBBDD {
 
 		} catch (SQLException se) {
 			
-			// ERRORES DE SQL
+			// Errores de la consulta SQL
 			
 			se.printStackTrace();
 		} catch (Exception e) {
 			
-			// ERRORES DE JAVA
+			// Error de Java
 			
 			e.printStackTrace();
 		} finally {
@@ -76,57 +74,53 @@ public class JugadorBBDD {
 
 	}
 
-	// ----------------------------------------
-	// ---- OBTENER LA ID DE LOS JUGADORES QUE SE REGISTRAN
-	// ----------------------------------------
+	
+	// Almacenados el id de los jugadores que se registran en la BBDD
+	
 
 	public static void idNuevosJugadores(Jugador j) {
 		ResultSet rs;
 		try {
 			orden = conexion.createStatement();
-			String sql = "SELECT id FROM mathdicedam ORDER BY `ID` DESC LIMIT 1";
+			String sql = "SELECT ID FROM registro ORDER BY `ID` DESC LIMIT 1";
 			rs = orden.executeQuery(sql);
 			
 			// Cogemos los usuarios
 			
 			while (rs.next()) {
-				j.setId(rs.getInt("id"));
+				j.setId(rs.getInt("ID"));
 			}
-			// Debemos cerrar la conexion
+			//  Cierro la conexion
 			
 			rs.close();
 		} catch (SQLException se) {
 			
-			// Se produce un error con la consulta
+			// Si se produce algún error con la consulta SQL
 			
 			se.printStackTrace();
 		} catch (Exception e) {
 			
-			// Se produce cualquier otro error
+			// Cualquier otro error
 			
 			e.printStackTrace();
 		} finally {
 		}
 	}
 
-	// ----------------------------------------
-	// ---- RELLENAR EL COMBOBOX CON LOS JUGADORES DE LA BBDD
-	// ----------------------------------------
 
-	// Metodo para rellenar el JComboBox a partir de los datos de la base de
-	// datos
+	// Rellenamos el JComboBox a partir de los datos de la BBDD
 	
-	public static void extraerJugadoresBD(JComboBox jc) {
+	public static void extraerJugadoresBBDD(JComboBox jc) {
 		ResultSet rs;
 		try {
 			orden = conexion.createStatement();
-			String sql = "SELECT id,nombre,apellido1,apellido2,edad, puntos FROM mathdicedam";
+			String sql = "SELECT ID, nombre, apellido1, apellido2, puntos, edad FROM registro";
 			rs = orden.executeQuery(sql);
 			
 			// Cogemos los usuarios
 			
 			while (rs.next()) {
-				Integer idJugadorBBDD = rs.getInt("id");
+				Integer idJugadorBBDD = rs.getInt("ID");
 				String nombreJugadorBBDD = rs.getString("nombre");
 				String apellido1JugadorBBDD = rs.getString("apellido1");
 				String apellido2JugadorBBDD = rs.getString("apellido2");
@@ -144,12 +138,12 @@ public class JugadorBBDD {
 			rs.close();
 		} catch (SQLException se) {
 			
-			// Se produce un error con la consulta
+			// Si se produce algún error con la consulta SQL
 			
 			se.printStackTrace();
 		} catch (Exception e) {
 			
-			// Se produce cualquier otro error
+			// Cualquier otro error
 			
 			e.printStackTrace();
 		} finally {
@@ -163,9 +157,7 @@ public class JugadorBBDD {
 		}
 	}
 
-	// ----------------------------------------
-	// ---- ACTUALIZAR PUNTUACION SI GANAS
-	// ----------------------------------------
+	//Se actualiza la puntuación cuando ganas
 
 	public static void jugadorGana(Jugador u) {
 		Integer puntosantiguos = u.getPuntos();
@@ -174,19 +166,19 @@ public class JugadorBBDD {
 		try {
 			orden = conexion.createStatement();
 
-			String sql = "UPDATE mathdicedam " + "SET nombre = '" + u.getNombre() + "'" + ",apellido1 = '"
+			String sql = "UPDATE registro " + "SET nombre = '" + u.getNombre() + "'" + ",apellido1 = '"
 					+ u.getPrimerApellido() + "'" + ",apellido2 = '" + u.getSegundoApellido() + "'" + ",edad = "
 					+ u.getEdad() + " " + ",puntos = " + puntosnuevos + " " + "WHERE id = " + u.getId();
 
 			orden.executeUpdate(sql);
 		} catch (SQLException se) {
 			
-			// Se produce un error con la consulta
+			// Si se produce algún error con la consulta SQL
 			
 			se.printStackTrace();
 		} catch (Exception e) {
 			
-			// Se produce cualquier otro error
+			// Cualquier otro error
 			
 			e.printStackTrace();
 		} finally {
@@ -194,32 +186,24 @@ public class JugadorBBDD {
 			
 			// Cerramos los recursos
 
-			/*
-			 * try{ if(orden!=null) conexion.close(); }catch(SQLException se){ }
-			 * try{ if(conexion!=null) conexion.close(); }catch(SQLException
-			 * se){ se.printStackTrace(); }//end finally try
-			 */
-
 		}
 	}
 
-	// ----------------------------------------
-	// ---- ACTUALIZAR JUGADOR SI GANAS
-	// ----------------------------------------
+	//Se actualizan los datos del jugador si gana en la BBDD
 
 	public static void actualizarJugador(Jugador u) {
 
 		try {
 			orden = conexion.createStatement();
 
-			String sql = "UPDATE mathdicedam " + "SET nombre = '" + u.getNombre() + "'" + ",apellido1 = '"
+			String sql = "UPDATE registro " + "SET nombre = '" + u.getNombre() + "'" + ",apellido1 = '"
 					+ u.getPrimerApellido() + "'" + ",apellido2 = '" + u.getSegundoApellido() + "'" + ",edad = "
 					+ u.getEdad() + " " + ",puntos = " + u.getPuntos() + " " + "WHERE id = " + u.getId();
 
 			orden.executeUpdate(sql);
 		} catch (SQLException se) {
 			
-			// Se produce un error con la consulta
+			// Si se produce algún error con la consulta SQL
 			
 			se.printStackTrace();
 		} catch (Exception e) {
@@ -231,11 +215,6 @@ public class JugadorBBDD {
 			
 			// Cerramos los recursos
 
-			/*
-			 * try{ if(orden!=null) conexion.close(); }catch(SQLException se){ }
-			 * try{ if(conexion!=null) conexion.close(); }catch(SQLException
-			 * se){ se.printStackTrace(); }//end finally try
-			 */
 
 		}
 	}

@@ -43,7 +43,7 @@ public class Juego extends JPanel {
 	private int valordado6;
 	
 	
-	
+	//Entrega p05
 	private JTextField sumDados;
 	private JButton botonMenos;
 	private Boolean alternando = false;
@@ -62,7 +62,7 @@ public class Juego extends JPanel {
 	private Juego ref;
 	private JTextField puntuacion;
 
-	private static JLabel label1;
+	private static JLabel labelBienvenida;
 	
 	//Se crea la ventana para jugador
 	
@@ -73,16 +73,11 @@ public class Juego extends JPanel {
 		setBounds(100, 100, 850, 700);
 		setLayout(null);
 		
-//		contentPane = new JPanel();
-//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		//Label donde creamos usuario y mensaje de bienvenida
 		
-//		contentPane.setLayout(null);
-		
-		//Label que recoge los datos creación de usuario + mensaje de bienvenida
-		
-		label1 = new JLabel("Bienvenido al juego "+j.getNombre());
-		label1.setBounds(534, 79, 263, 14);
-		add(label1);
+		labelBienvenida = new JLabel("Bienvenido al juego "+j.getNombre());
+		labelBienvenida.setBounds(534, 79, 263, 14);
+		add(labelBienvenida);
 		
 	
 		//Carga imagenes en los arrays
@@ -358,7 +353,7 @@ public class Juego extends JPanel {
 	
 	public static void cambiarLabelNombre(String s){
 		String cadena= "Bienvenido jugador "+s;
-		label1.setText(cadena);
+		labelBienvenida.setText(cadena);
 	}
 	
 	// P06 INNERCLASS
@@ -413,25 +408,25 @@ public class Juego extends JPanel {
 
 	
 		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
+			
 			
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
+			
 			
 		}
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
+			
 			
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
+			
 			
 		}
 	

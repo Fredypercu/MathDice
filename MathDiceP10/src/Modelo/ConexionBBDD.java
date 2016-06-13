@@ -11,7 +11,7 @@ public class ConexionBBDD {
 	
 	//Instanciar=crear objeto
 	
-	//Preparar un huevo para que cuando se cree la conexion, se almacene y no se creen mas a pesar de que puede parecer que estamos creando mas
+	//No dejamos registrar mismo usuario en la BBDD mas de una vez
 	
 	private static ConexionBBDD INSTANCE = null;
 	
@@ -28,19 +28,20 @@ public class ConexionBBDD {
 		      //mathdicedam = Es el nombre de la base de datos 
 		      
 		      connect = DriverManager.getConnection("jdbc:mysql://localhost/mathdicedam?"
-			      		+ "user=Alfredo=Marimba19");
-	    
+			      		+ "user=Alfredo&password=Marimba19");
+		      System.out.println("Conexion realizada");
+		      
 		} catch (Exception e) {
 			
-			//Recoje el error que muestra Java (Se hace asi por el try catch)
+			//Error que muestra Java
 			
 	        System.out.println(e);
-	        System.out.println("LA CONEXION FALLO");
+	        System.out.println("La conexión ha fallado, revisa por favor");
 	    } 
 	}
 	
-	//El profesor explico que este metodo es util porque vamos a abrir la conexion 1 vez, y la mantendremos abierta hasta el final de ejecucion
-	//Con este metodo recuperamos la conexion en curso.
+	
+	//Se recupera la conexion en curso.
 	
 	public static Connection getConexion(){
 		if (INSTANCE==null){
